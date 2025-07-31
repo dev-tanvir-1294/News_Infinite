@@ -21,6 +21,7 @@
                 $sql = "SELECT * FROM category";
                 $result = mysqli_query($conn, $sql) or die("Query Failed");
 
+
                 if (mysqli_num_rows($result) > 0) {
 
 
@@ -46,13 +47,17 @@
 
                             <?php
 
+
+
+                            $index = 1;
+
                             while ($row = mysqli_fetch_assoc($result)) {
 
 
                             ?>
 
                                 <tr>
-                                    <td class='id'><?php echo $row['category_id'] ?></td>
+                                    <td class='id'><?php echo $index; ?></td>
                                     <td><?php echo $row['category_name'] ?></td>
                                     <td><?php echo $row['post'] ?></td>
                                     <td class='edit'><a href='update-category.php?id=<?php echo $row["category_id"]; ?>'><i class='fa fa-edit'></i></a></td>
@@ -61,6 +66,7 @@
 
                             <?php
 
+                                $index++;
                             }
                             ?>
 
